@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">EduTech</string>
+    <string name="sign_up">New user? Click here to Sign Up.</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+</resources>

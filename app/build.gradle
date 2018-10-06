@@ -4,17 +4,12 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.smit.edutech"
-<<<<<<< HEAD
         minSdkVersion 16
-=======
-        minSdkVersion 15
         multiDexEnabled true
->>>>>>> 4a9ca01fe0dbfee90a68eb6653b649330be65004
         targetSdkVersion 27
         versionCode 1
         multiDexEnabled true
         versionName "1.0"
-        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

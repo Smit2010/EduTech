@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".homeActivity" />
+        <activity android:name=".user_profile"></activity>
         <activity android:name=".signUpActivity"></activity>
+
     </application>
 
 </manifest>

@@ -136,6 +136,7 @@ public class homeActivity extends AppCompatActivity implements NavigationView.On
             String upperStringFname = personGivenName.substring(0, 1).toUpperCase() + personGivenName.substring(1);
             String upperStringLname = personFamilyName.substring(0, 1).toUpperCase() + personFamilyName.substring(1);
             name.setText(upperStringFname + " " + upperStringLname);
+            user_details user_profile= new user_details(personName,personGivenName,personPhoto,personEmail);
         }
     }
 
@@ -163,9 +164,9 @@ public class homeActivity extends AppCompatActivity implements NavigationView.On
                 break;
             }
 
-            /*case R.id.profile:{
-                startActivity(new Intent(homeActivity.this,ProfileActivity.class));
-            }*/
+            case R.id.profile:{
+                startActivity(new Intent(homeActivity.this,user_profile.class));
+            }
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;

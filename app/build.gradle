@@ -8,7 +8,6 @@ android {
         multiDexEnabled true
         targetSdkVersion 27
         versionCode 1
-        multiDexEnabled true
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -23,6 +22,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'jp.wasabeef:blurry:2.1.1'
     //implementation  'de.hdodenhof:circleimageview:2.1.0'
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:support-v4:27.1.1'

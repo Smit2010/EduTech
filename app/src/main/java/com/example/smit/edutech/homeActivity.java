@@ -57,8 +57,8 @@ public class homeActivity extends AppCompatActivity implements NavigationView.On
 
         bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
 
-        AHBottomNavigationItem item1 = new AHBottomNavigationItem(getResources().getString(R.string.dashboard_text), R.drawable.dashboard_icon);
-        AHBottomNavigationItem item2 = new AHBottomNavigationItem(getResources().getString(R.string.exams_text), R.drawable.exams_icon);
+        AHBottomNavigationItem item1 = new AHBottomNavigationItem(getResources().getString(R.string.OnGoing), R.drawable.dashboard_icon);
+        AHBottomNavigationItem item2 = new AHBottomNavigationItem(getResources().getString(R.string.Discuss), R.drawable.exams_icon);
         AHBottomNavigationItem item3 = new AHBottomNavigationItem(getResources().getString(R.string.profile_text), R.drawable.profile_icon);
 
         bottomNavigation.addItem(item1);

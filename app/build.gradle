@@ -4,10 +4,15 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.smit.edutech"
+<<<<<<< HEAD
+        minSdkVersion 16
+=======
         minSdkVersion 15
         multiDexEnabled true
+>>>>>>> 4a9ca01fe0dbfee90a68eb6653b649330be65004
         targetSdkVersion 27
         versionCode 1
+        multiDexEnabled true
         versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -37,6 +42,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:16.0.2'
     implementation 'com.google.firebase:firebase-core:16.0.3'
     implementation 'com.google.firebase:firebase-firestore:17.1.0'
+    implementation 'com.firebaseui:firebase-ui:0.6.0'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.google.android.gms:play-services-auth:16.0.0'
     testImplementation 'junit:junit:4.12'

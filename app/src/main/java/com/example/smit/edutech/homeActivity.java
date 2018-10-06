@@ -47,6 +47,14 @@ public class homeActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_home);
         setNavigationViewListener();
 
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail().build();
+        mGoogleApi = new GoogleApiClient.Builder(this).addApi(Auth.GOOGLE_SIGN_IN_API,gso).build();
+        mGoogleApi.connect();
+
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
         bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
 
         AHBottomNavigationItem item1 = new AHBottomNavigationItem(getResources().getString(R.string.dashboard_text), R.drawable.dashboard_icon);
@@ -91,14 +99,6 @@ public class homeActivity extends AppCompatActivity implements NavigationView.On
         bottomNavigation.setDefaultBackgroundColor(getResources().getColor(R.color.white));
         bottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
         bottomNavigation.setAccentColor(getResources().getColor(R.color.colorPrimary));
-
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail().build();
-        mGoogleApi = new GoogleApiClient.Builder(this).addApi(Auth.GOOGLE_SIGN_IN_API,gso).build();
-        mGoogleApi.connect();
-
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         toolbar = findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);

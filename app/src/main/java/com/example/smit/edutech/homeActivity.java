@@ -2,7 +2,9 @@ package com.example.smit.edutech;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.ColorRes;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -14,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
+import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -30,6 +34,10 @@ public class homeActivity extends AppCompatActivity implements NavigationView.On
     private ActionBarDrawerToggle toggle;
     android.support.v7.widget.Toolbar toolbar;
 
+    AHBottomNavigation bottomNavigation;
+    NoSwipePager viewPager;
+    BottomBarAdapter bottomBarAdapter;
+
     private GoogleApiClient mGoogleApi;
     TextView Categories;
 
@@ -39,13 +47,50 @@ public class homeActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_home);
         setNavigationViewListener();
 
-        /*Categories = findViewById(R.id.categories);
-        Categories.setOnClickListener(new View.OnClickListener() {
+        bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
+
+        AHBottomNavigationItem item1 = new AHBottomNavigationItem(getResources().getString(R.string.dashboard_text), R.drawable.dashboard_icon);
+        AHBottomNavigationItem item2 = new AHBottomNavigationItem(getResources().getString(R.string.exams_text), R.drawable.exams_icon);
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem(getResources().getString(R.string.profile_text), R.drawable.profile_icon);
+
+        bottomNavigation.addItem(item1);
+        bottomNavigation.addItem(item2);
+        bottomNavigation.addItem(item3);
+
+        // Making custom view pager
+        viewPager = (NoSwipePager) findViewById(R.id.pager);
+        viewPager.setPagingEnabled(false);
+
+        bottomBarAdapter = new BottomBarAdapter(getSupportFragmentManager());
+
+        // Creating Fragments
+        FragmentOne fragmentOne = new FragmentOne();
+        FragmentTwo fragmentTwo = new FragmentTwo();
+        FragmentThree fragmentThree = new FragmentThree();
+
+        // Adding fragments
+        bottomBarAdapter.addFragments(fragmentOne);
+        bottomBarAdapter.addFragments(fragmentTwo);
+        bottomBarAdapter.addFragments(fragmentThree);
+
+        viewPager.setAdapter(bottomBarAdapter);
+
+        bottomNavigation.setCurrentItem(0);
+
+        bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(homeActivity.this,Categories.class));
+            public boolean onTabSelected(int position, boolean wasSelected) {
+
+                if (!wasSelected)
+                    viewPager.setCurrentItem(position);
+                return true;
             }
-        });*/
+        });
+
+        // Styling bottom navigation
+        bottomNavigation.setDefaultBackgroundColor(getResources().getColor(R.color.white));
+        bottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
+        bottomNavigation.setAccentColor(getResources().getColor(R.color.colorPrimary));
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail().build();
@@ -124,6 +169,10 @@ public class homeActivity extends AppCompatActivity implements NavigationView.On
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private int fetchColor(@ColorRes int color) {
+        return ContextCompat.getColor(this, color);
     }
 
     @Override

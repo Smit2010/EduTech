@@ -59,11 +59,11 @@ public class homeActivity extends AppCompatActivity implements NavigationView.On
 
         AHBottomNavigationItem item1 = new AHBottomNavigationItem(getResources().getString(R.string.OnGoing), R.drawable.dashboard_icon);
         AHBottomNavigationItem item2 = new AHBottomNavigationItem(getResources().getString(R.string.Discuss), R.drawable.exams_icon);
-        AHBottomNavigationItem item3 = new AHBottomNavigationItem(getResources().getString(R.string.profile_text), R.drawable.profile_icon);
+       /* AHBottomNavigationItem item3 = new AHBottomNavigationItem(getResources().getString(R.string.profile_text), R.drawable.profile_icon);*/
 
         bottomNavigation.addItem(item1);
         bottomNavigation.addItem(item2);
-        bottomNavigation.addItem(item3);
+        //bottomNavigation.addItem(item3);
 
         // Making custom view pager
         viewPager = (NoSwipePager) findViewById(R.id.pager);
@@ -74,12 +74,12 @@ public class homeActivity extends AppCompatActivity implements NavigationView.On
         // Creating Fragments
         FragmentOne fragmentOne = new FragmentOne();
         FragmentTwo fragmentTwo = new FragmentTwo();
-        FragmentThree fragmentThree = new FragmentThree();
+        //FragmentThree fragmentThree = new FragmentThree();
 
         // Adding fragments
         bottomBarAdapter.addFragments(fragmentOne);
         bottomBarAdapter.addFragments(fragmentTwo);
-        bottomBarAdapter.addFragments(fragmentThree);
+        //bottomBarAdapter.addFragments(fragmentThree);
 
         viewPager.setAdapter(bottomBarAdapter);
 
